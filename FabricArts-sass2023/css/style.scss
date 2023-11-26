@@ -1,0 +1,275 @@
+@charset "utf-8";
+
+$color-main: #000;
+$color-text: #898989;
+$color-accent: #E40065;
+$color-bg: #FDF8EB;
+
+$width: 1170;
+
+@mixin inner($w: 88%, $mw: $width + px) {
+  width: $w;
+  max-width: $mw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin flex($a: flex-start, $j: space-between) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: $j;
+  align-items: $a;
+}
+
+/* BASE
+--------------------------*/
+body {
+  color: $color-main;
+  font-size: 14px;
+  font-family: "Helvetica", "Helvetica Neue", "Yu Gothic", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  line-height: (24/14);
+  letter-spacing: (50/1000) + em;
+  background-color: #fff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+a {
+  color: $color-main;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+/* MODULE
+--------------------------*/
+/* header */
+.header {
+  margin: 70px 0 100px;
+
+  &__inner {
+    @include inner();
+    @include flex(flex-end);
+  }
+}
+
+/* gnav */
+.gnav {
+  &__list {
+    @include flex();
+  }
+
+  &__item {
+    margin-left: 30px;
+  }
+
+  &__link {
+    font-weight: bold;
+  }
+}
+
+/* footer */
+.footer {
+  &__inner {
+    @include inner();
+    padding: 100px 0 60px;
+    text-align: right;
+  }
+
+  &__copy {
+    color: $color-text;
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
+
+/* unit */
+.unit {
+  margin-bottom: 60px;
+
+  &__caption {
+    margin-bottom: 20px;
+    color: $color-text;
+    font-size: 12px;
+  }
+
+  &__title {
+    margin-bottom: 60px;
+    font-size: 38px;
+    font-weight: normal;
+    line-height: (49/38);
+
+    &::after {
+      content: "";
+      display: block;
+      width: 120px;
+      margin-top: 30px;
+      border-bottom: 1px solid;
+    }
+  }
+
+  &__eng {
+    margin-top: 40px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+  }
+
+  &--column {
+    @include flex();
+
+    .unit__header {
+      width: (360/$width) * 100%;
+    }
+
+    .unit__body {
+      width: (700/$width) * 100%;
+    }
+  }
+}
+
+/* card */
+.card {
+  &__pic {
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: (26/20);
+  }
+
+  &__caption {
+    color: $color-text;
+    font-size: 12px;
+  }
+
+  &__body {
+    margin-top: 40px;
+  }
+}
+
+/* outline */
+.outline {
+  &__title {
+    display: inline-block;
+    margin-bottom: 30px;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: $color-accent;
+    border-radius: 15px;
+  }
+
+  &__text {
+    font-size: 20px;
+  }
+
+  &__list {
+    margin-top: 40px;
+  }
+
+  &__item {
+    margin-top: 15px;
+  }
+}
+
+/* index.html
+--------------------------*/
+.visual {
+  margin-bottom: 100px;
+}
+
+.works {
+  padding-bottom: 78px;
+
+  &__inner {
+    @include inner();
+  }
+
+  &__list {
+    @include flex();
+  }
+
+  &__item {
+    width: (370/$width) * 100%;
+  }
+}
+
+.project {
+  padding: 100px 0;
+  background-color: $color-bg;
+
+  &__inner {
+    @include inner();
+  }
+
+  &__list {
+    @include flex();
+  }
+
+  &__item {
+    width: (560/$width) * 100%;
+  }
+
+  &__pic {
+    margin-bottom: 30px;
+  }
+}
+
+/* company.html
+--------------------------*/
+.company {
+  margin-top: 200px;
+
+  &__inner {
+    @include inner();
+  }
+}
+
+.story {
+  margin-bottom: 100px;
+
+  .outline {
+    color: #fff;
+  }
+
+  &__item01 {
+    margin-bottom: 60px;
+    padding: 150px 80px 160px;
+    background: url(../images/bg_project01.jpg) no-repeat center/cover;
+  }
+
+  &__item02 {
+    margin-bottom: 60px;
+    padding: 150px 80px 160px;
+    background: url(../images/bg_project02.jpg) no-repeat center/cover;
+  }
+}
+
+.overview {
+  padding: 100px 0;
+  background-color: $color-bg;
+
+  &__inner {
+    @include inner();
+  }
+
+  &__list {
+    @include flex();
+  }
+
+  &__item {
+    width: (370/$width) * 100%;
+  }
+}
